@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import Link from 'next/link';
 
 export function Header() {
-  console.log('Header');
   return (
     <header>
       <h1
@@ -13,7 +12,7 @@ export function Header() {
           'lg:text-7xl/normal lg:py-12',
         )}
       >
-        <Link href='#'>The Blog</Link>
+        <Link href='/'>The Blog</Link>
       </h1>
     </header>
   );
