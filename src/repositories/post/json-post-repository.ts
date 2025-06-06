@@ -5,8 +5,6 @@ import { readFile } from 'fs/promises';
 
 const ROOT_DIR = process.cwd();
 
-console.log(ROOT_DIR);
-
 const JSON_POSTS_FILE_PATH = resolve(
   ROOT_DIR,
   'src',
@@ -31,10 +29,15 @@ export class JsonPostRepository implements PostRepository {
     return posts;
   }
 
-  async findAllPublic(): Promise<PostModel[]> {
+  async findAll(): Promise<PostModel[]> {
     await this.simulateWait();
 
-    console.log('\n', 'findAllPublic', '\n');
+    const posts = await this.readFromDisk();
+    return posts;
+  }
+
+  async findAllPublic(): Promise<PostModel[]> {
+    await this.simulateWait();
 
     const posts = await this.readFromDisk();
     return posts.filter(post => post.published);
@@ -49,7 +52,7 @@ export class JsonPostRepository implements PostRepository {
     return post;
   }
 
-  async findBySlug(slug: string): Promise<PostModel> {
+  async findBySlugPlublic(slug: string): Promise<PostModel> {
     const posts = await this.findAllPublic();
     const post = posts.find(p => p.slug === slug);
 

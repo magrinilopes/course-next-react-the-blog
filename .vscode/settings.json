@@ -17,7 +17,7 @@
   "code-runner.runInTerminal": true,
   "code-runner.ignoreSelection": true,
   "code-runner.executorMap": {
-    "typescript": "clear; npx tsx"
+    "typescript": "clear; nvm use 22; npx tsx"
   },
 
   // 🛠 Formatação e Lint
