@@ -1,21 +1,24 @@
 import type { NextConfig } from 'next';
 
-/* const nextConfig: NextConfig = {
-  output: 'export',
+const nextConfig: NextConfig = {
   images: {
-    unoptimized: true,
-  },
-  experimental: {
-    useCache: true,
-    cacheLife: {
-      seconds: {
-        stale: 0,
-        revalidate: 10,
-        expire: 10,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'localhost',
+        port: '3000',
+        pathname: '/**',
+        search: '',
       },
-    },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '3000',
+        pathname: '/**',
+        search: '',
+      },
+    ],
   },
-};*/
-const nextConfig: NextConfig = {};
+};
 
 export default nextConfig;

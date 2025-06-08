@@ -5,9 +5,13 @@ import { Button } from '@/components/Button';
 import { ImageUpIcon } from 'lucide-react';
 import { IMAGE_UPLOADER_MAX_SIZE } from '@/lib/constants';
 import { toast } from 'react-toastify';
-import { uploadImageAction } from '@/actions/upload-image-action';
+import { uploadImageAction } from '@/actions/upload/upload-image-action';
 
-export function ImageUploader() {
+type ImageUploaderProps = {
+  disabled?: boolean;
+};
+
+export function ImageUploader({ disabled = false }: ImageUploaderProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [isUploading, startUploadImagem] = useTransition();
   const [imgUrl, setImgUrl] = useState('');
@@ -70,7 +74,7 @@ export function ImageUploader() {
       <Button
         type='button'
         className='self-start'
-        disabled={isUploading}
+        disabled={isUploading || disabled}
         onClick={handleChooseFile}
       >
         <ImageUpIcon />
@@ -88,7 +92,7 @@ export function ImageUploader() {
 
       <input
         onChange={handleChange}
-        disabled={isUploading}
+        disabled={isUploading || disabled}
         ref={fileInputRef}
         className='hidden'
         type='file'
