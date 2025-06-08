@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Container } from '@/components/Container';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { ToastifyContainer } from '@/components/ToastifyContainer';
 
 import './globals.css';
 
@@ -20,7 +21,7 @@ type RootLayoutProps = {
 export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
   return (
     <html lang='pt-BR'>
-      <body>
+      <body data-color-mode='light'>
         <Container>
           <Header />
 
@@ -28,6 +29,8 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
 
           <Footer />
         </Container>
+
+        <ToastifyContainer />
       </body>
     </html>
   );
