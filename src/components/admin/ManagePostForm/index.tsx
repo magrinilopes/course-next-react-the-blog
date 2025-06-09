@@ -51,7 +51,6 @@ export function ManagePostForm(props: ManagePostFormProps) {
   );
 
   useEffect(() => {
-    console.log(state.errors);
     if (state.errors.length > 0) {
       toast.dismiss();
       state.errors.forEach(error => toast.error(error));
@@ -159,7 +158,7 @@ export function ManagePostForm(props: ManagePostFormProps) {
       </div>
       <div className='flex items-center justify-center mt-4'>
         <Button type='submit' disabled={isPending}>
-          Botão 1
+          Gravar
         </Button>
       </div>
     </form>

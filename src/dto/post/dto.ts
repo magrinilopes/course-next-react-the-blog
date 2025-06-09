@@ -1,6 +1,6 @@
 import { PostModel } from '@/models/posts/post-model';
 
-export type PublicPost = Omit<PostModel, 'updateAt'>;
+export type PublicPost = Omit<PostModel, 'updatedAt'>;
 
 export const makePartialPublicPost = (
   post?: Partial<PostModel>,

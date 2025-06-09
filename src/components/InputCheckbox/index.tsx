@@ -5,7 +5,7 @@ type InputCheckboxProps = {
   type?: 'checkbox';
   labelText?: string;
   labelCheck: string;
-} & React.Component<'input'>;
+} & React.ComponentProps<'input'>;
 
 export function InputCheckbox({
   type = 'checkbox',

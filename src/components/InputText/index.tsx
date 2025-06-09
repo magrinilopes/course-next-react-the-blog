@@ -3,7 +3,7 @@ import { useId } from 'react';
 
 type InputTextProps = {
   labelText?: string;
-} & React.Component<'input'>;
+} & React.ComponentProps<'input'>;
 
 export function InputText({ labelText = '', ...props }: InputTextProps) {
   const id = useId();
