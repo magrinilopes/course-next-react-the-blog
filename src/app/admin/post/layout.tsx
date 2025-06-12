@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { MenuAdmin } from '@/components/admin/MenuAdmin';
+import { requireLoginSessionOrRedirect } from '@/lib/login/manage-login';
 
 export const metadata: Metadata = {
   title: {
@@ -13,9 +14,11 @@ type AdminPostLayoutProps = {
   children: React.ReactNode;
 };
 
-export default function AdminPostLayout({
+export default async function AdminPostLayout({
   children,
 }: Readonly<AdminPostLayoutProps>) {
+  await requireLoginSessionOrRedirect();
+
   return (
     <>
       <MenuAdmin />
